@@ -26,6 +26,7 @@
 */
 #pragma once
 #include <iostream>
+#include <istream>
 #include <stdexcept>
 #include <algorithm>
 #include <iterator>
@@ -621,6 +622,31 @@ class network {
                 from_archive(ji, what);
             }
             break;
+            default:
+                throw nn_error("invalid serialization format");
+        }
+    }
+
+    void load(std::istream & is,
+              content_type       what     = content_type::weights_and_model,
+              file_format        format   = file_format::binary) {
+        //std::ifstream ifs(is, std::ios::binary | std::ios::in);
+        if (is.fail() || is.bad())
+            throw nn_error("failed to open:" );
+
+        switch (format) {
+            case file_format::binary:
+            {
+                cereal::BinaryInputArchive bi(is);
+                from_archive(bi, what);
+            }
+                break;
+            case file_format::json:
+            {
+                cereal::JSONInputArchive ji(is);
+                from_archive(ji, what);
+            }
+                break;
             default:
                 throw nn_error("invalid serialization format");
         }

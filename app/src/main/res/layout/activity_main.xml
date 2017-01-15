@@ -30,4 +30,39 @@
         android:layout_centerHorizontal="true"
         android:layout_above="@id/benchmark"/>
 
+    <!--<com.tinydnn.android.util.PixelGridView-->
+        <!--android:id="@+id/drawView"-->
+        <!--android:layout_centerInParent="true"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:visibility="gone"-->
+        <!--/>-->
+    <com.tinydnn.android.util.FingerPaintView
+        android:id="@+id/drawView"
+        android:layout_centerInParent="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        />
+
+
+    <Button
+        android:text="Clear"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/clear"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:visibility="gone"/>
+
+    <TextView
+        android:text="MNIST Prediction Result:"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="17dp"
+        android:id="@+id/recoDigit"
+        android:visibility="gone"/>
+
 </RelativeLayout>

@@ -35,6 +35,12 @@ find_library( # Sets the name of the path variable.
               # Specifies the name of the NDK library that
               # you want CMake to locate.
               log )
+find_library( # Sets the name of the path variable.
+              android-lib
+
+              # Specifies the name of the NDK library that
+              # you want CMake to locate.
+              android )
 
 # Specifies libraries CMake should link to your target library. You
 # can link multiple libraries, such as libraries you define in the
@@ -45,4 +51,5 @@ target_link_libraries( # Specifies the target library.
 
                        # Links the target library to the log library
                        # included in the NDK.
-                       ${log-lib} )
+                       ${log-lib}
+                       ${android-lib})
